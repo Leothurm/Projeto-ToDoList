@@ -9,8 +9,61 @@
 
 }
 
-.btn-icon{
-    padding: 2px;
-    width: 20px;
-    height: 13px;
+body{
+    background-image: url('../img/imagemFundo.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 1.5rem;
+}
+
+button{
+    min-width: 30px;
+    min-height: 25px;
+    background-color: #FDFDFD;
+    color: #102F5e;
+    border: 2px solid #102F5e;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+button:hover{
+    background-color: #102F5e;
+    color: #FFF;
+}
+
+button:hover>i{
+    color: #FFF;
+}
+
+
+button i{
+    color:#102F5e;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+input, select{
+    padding: 2px 5px;
+}
+
+/* main */
+.todo-container{
+    max-width: 450px;
+    margin:3rem auto;
+    background-color: #FDFDFDBB;
+    padding: 15px;
+    border-radius: 15px;
+  
+}
+
+.todo-container h1{
+    text-align: center;
+    font-size: 2rem;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #102F5e;
 }
