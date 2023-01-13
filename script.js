@@ -6,6 +6,8 @@ const editForm = document.querySelector("#edit-form");
 const editInput = document.querySelector("#edit-input");
 const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 
+let oldInputValue;
+
 //funções
 const saveTodo = (text) => {
 
@@ -51,6 +53,18 @@ const toggleForms = () => {
     //faz adicionar a class "hide" nesses elementos
 }
 
+const updateTodo = (text) => {
+    const todos = document.querySelectorAll(".todo")
+
+    todos.forEach((todo) => {
+        let todoTitle = todo.querySelector("h3")
+
+        if(todoTitle.innerHTML === oldInputValue){
+            todoTitle.innerText = text
+        }
+    }) 
+}
+
 //Eventos
 
 todoForm.addEventListener("submit", (e) =>{
@@ -70,6 +84,12 @@ document.addEventListener("click", (e) => {
     //constante para mapear os botoes que serão selecionados
     const parentEl = targetEl.closest("div")
     // constante para identificar a div mais proxima ao elemento clickado
+    let todoTitle;
+
+    if(parentEl && parentEl.querySelector("h3")){
+        todoTitle = parentEl.querySelector("h3").innerText;
+    }
+
 
     if(targetEl.classList.contains("finish-todo")){
         //esse if faz identificar o botão que eu quero selecionar procurando o texto finish-todo
@@ -82,12 +102,27 @@ document.addEventListener("click", (e) => {
     }
 
     if(targetEl.classList.contains("edit-todo")){
-        toggleForms()
+        toggleForms();
+
+        editInput.value = todoTitle
+        oldInputValue = todoTitle
     }
 
 });
 
 cancelEditBtn.addEventListener("click", (e) => {
     e.preventDefault()
+    toggleForms()
+});
+
+editForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const editInputValue = editInput.value
+
+    if(editInputValue){
+        updateTodo(editInputValue)
+    }
+
     toggleForms()
 })
