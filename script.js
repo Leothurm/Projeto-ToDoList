@@ -44,6 +44,13 @@ const saveTodo = (text) => {
     //faz apos adicionar uma tarefa, zerar o input e voltar automaticamente para adicionar outra tarefa
 };
 
+const toggleForms = () => {
+    editForm.classList.toggle("hide")
+    todoForm.classList.toggle("hide")
+    todoList.classList.toggle("hide")
+    //faz adicionar a class "hide" nesses elementos
+}
+
 //Eventos
 
 todoForm.addEventListener("submit", (e) =>{
@@ -70,5 +77,17 @@ document.addEventListener("click", (e) => {
         //faz adicionar uma classe na div ao clickar no botao e des-selecionar ao clickar novamente
     }
 
+    if (targetEl.classList.contains("remove-todo")){
+        parentEl.remove()
+    }
 
+    if(targetEl.classList.contains("edit-todo")){
+        toggleForms()
+    }
+
+});
+
+cancelEditBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    toggleForms()
 })
