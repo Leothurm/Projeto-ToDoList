@@ -129,7 +129,7 @@ input, select{
     flex-direction: column;
 }
 /* todo list */
-.todo{
+.todo-item{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -137,11 +137,11 @@ input, select{
     border-bottom: 1px solid #102F5e;
     transition: 0.3s;
 }
-.todo h3{
+.todo-item h3{
     flex: 1;
     font-size: 0.9rem;
 }
-.todo button{
+.todo-item button{
     margin-left: 0.4rem;
 }
 

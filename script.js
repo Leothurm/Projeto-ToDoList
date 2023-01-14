@@ -9,13 +9,32 @@ const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 let oldInputValue;
 
 //funções
+
+const item = document.createElement('label');
+item.classList
+
+/* <div id="todo-list">
+<div class="todo">
+  <h3>Estou fazendo alguma coisa...</h3>
+  <button class="finish-todo">
+    <i class="fa-solid fa-check btn-icon"></i>
+  </button>
+  <button class="edit-todo">
+    <i class="fa-solid fa-pen btn-icon"></i>
+  </button>
+  <button class="remove-todo">
+    <i class="fa-solid fa-xmark btn-icon"></i>
+  </button>
+</div> */
+
+
 const saveTodo = (text) => {
 
     const todo = document.createElement("div")
         todo.classList.add("todo")
 
     const todoTitle = document.createElement("h3")
-        todoTitle.innerHTML = text
+            .innerHTML = text
         // cria uma constante e o valor atribuido será o que a pessoa digitar no input
         todo.appendChild(todoTitle)
 
