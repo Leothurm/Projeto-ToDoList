@@ -1,3 +1,7 @@
+const todoForm = document.querySelector('#todo-form')
+
+
+
 'use strict';
 let banco = [
     {'tarefa': 'Estudar JS' },
@@ -48,6 +52,10 @@ const inserirItem = (evento) => {
         evento.target.value = '';
     }
 }
+
+todoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+})
 
 
 document.getElementById('newItem').addEventListener('keypress', inserirItem);
